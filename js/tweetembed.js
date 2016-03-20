@@ -29,18 +29,18 @@ var TweetEmbedJs = (function() {
                         toolbar_items_size: 'small',
                         content_css: "theme/tinymce/tweetembed.css",
                         image_advtab: true,
-                        save_enablewhendirty: false,
+                        save_enablewhendirty: false
                     });
 
                 });
             },
 
-            apiPost: function(params) {
+            apiPost: function(args) {
                 $.ajax({
                     url: "php/TweetEmbed.class.php",
                     type: "post",
                     timeout: 40000,
-                    data: { params }
+                    data: { params : args }
                 })
                     .done(function(response) {
                         $('.mce-twapicode-class').val(response.oembed);
