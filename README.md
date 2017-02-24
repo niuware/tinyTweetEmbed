@@ -2,7 +2,7 @@ tinyTweetEmbed
 ======
 ![tinyTweetEmbed](http://niuware.com/github/tinyTweetEmbed/images/screen_0.png)
 
-**tinyTweetEmbed** is a simple plugin to embed tweets directly from your TinyMCE editor. Just copy the URL of the tweet and let this plugin transform it into an HTML Tweet card. It uses PHP to connect to the Twitter API to transform the URL. NO API keys required :)
+**tinyTweetEmbed** is a simple plugin to embed tweets directly into your TinyMCE editor. Just copy the URL of the tweet and let this plugin transform it into an HTML Tweet card. It uses PHP to connect to the Twitter API to transform the URL. NO API keys required :)
 
 ## Installation
 
@@ -22,17 +22,17 @@ theme/                    // Styles for TinyMCE
 
 ##Usage
 
-1. Open the plugin going into the TinyMCE menubar Insert > Embed Tweet.
-2. Paste the url of your tweet (something like https://twitter.com/{username}/status/{status-id-number})
+1. Open the Tweet Embed plugin navigating through the TinyMCE menubar Insert > Embed Tweet.
+2. Paste the url of your tweet (something like https://twitter.com/{username}/status/{status-id})
 3. Click on "Get Tweet Code". After you see the embedcode then click "OK" and thats it.
 
 ![tinyTweetEmbed dialog](http://niuware.com/github/tinyTweetEmbed/images/screen_1.png)
 
-You will see just a general design of the card inside TinyMCE:
+You will see a simple design of the card inside the TinyMCE editor:
 
 ![tinyTweetEmbed dialog](http://niuware.com/github/tinyTweetEmbed/images/screen_2.png)
 
-But once in your live website you will see something like this:
+But in your website you will see the full tweet card like this:
 
 ![tinyTweetEmbed dialog](http://niuware.com/github/tinyTweetEmbed/images/screen_3.png)
 
