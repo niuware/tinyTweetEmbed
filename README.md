@@ -20,7 +20,7 @@ js/tweetembed.js          // Script to instantiate the tinymce and communicate w
 theme/                    // Styles for TinyMCE
 ```
 
-##Usage
+## Usage
 
 1. Open the Tweet Embed plugin navigating through the TinyMCE menubar Insert > Embed Tweet.
 2. Paste the url of your tweet (something like https://twitter.com/{username}/status/{status-id})
@@ -45,7 +45,7 @@ If you download the repository, just open the **index.html** for a live example.
 
 ## Author
 
-This application was coded entirely by Erik Lopez.
+This application was coded by Erik Lopez.
 
 ## License
 
