@@ -43,7 +43,7 @@ But in your website you will see the full tweet card like this:
 
 ![tinyTweetEmbed dialog](http://niuware.github.io/public/assets/tinyTweetEmbed/images/screen_3.png)
 
-**Remember** you need the Twitter Widget js file in your live website in order to render the card correctly. Find out more [here](https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/set-up-twitter-for-websites)
+Remember you need the Twitter Javascript API file in your live website in order to render the card correctly. Find out more [here](https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/set-up-twitter-for-websites).
 
 ## Example
 
