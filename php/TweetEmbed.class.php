@@ -2,27 +2,29 @@
 
 namespace Niuware {
 
-    class TweetEmbedClass {
+    class TweetEmbed {
         
-        private $twitter;
-        
-        public function __construct() { }
-        
-        public function postEmbedTweet($params = array())
+        public static function getOembedTweet($params = array())
         {
             if (isset($params['url'])) {
+
+                $linkColor = ltrim($params['linkcolor'], '#');
                 
                 $paramsArray = array(
                     "url" => filter_var($params['url'], FILTER_SANITIZE_URL),
-                    "omit_script" => $params['om_script'],
+                    "omit_script" => $params['omit_script'],
                     "align" => "center",
-                    "hide_media" => $params['cards'],
-                    "hide_thread" => $params['threads']
-                    );
+                    "hide_media" => $params['hide_media'],
+                    "hide_thread" => $params['hide_thread'],
+                    "widget_type" => ($params['is_video'] === "true") ? "video" : "",
+                    "theme" => ($params['theme'] === "true") ? "dark" : "light",
+                    "link_color" => (ctype_xdigit($linkColor)) ? "#" . $linkColor : "",
+                    "maxwidth" => (is_numeric($params['maxwidth'])) ? $params['maxwidth'] : ""
+                );
                     
                 $query = http_build_query($paramsArray);
                 
-                $response = json_decode(file_get_contents("https://api.twitter.com/1.1/statuses/oembed.json?" . $query));
+                $response = json_decode(file_get_contents("https://publish.twitter.com/oembed?" . $query));
                 
                 if (isset($response->html))
                 {
@@ -34,10 +36,8 @@ namespace Niuware {
     }
     
     if (filter_input(\INPUT_SERVER, 'REQUEST_METHOD') == "POST") {
-        
-        $demo = new TweetEmbedClass();
 
-        $demo->postEmbedTweet(filter_input(INPUT_POST, 'params', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY));
+        TweetEmbed::getOembedTweet(filter_input(INPUT_POST, 'params', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY));
     }
 }
 

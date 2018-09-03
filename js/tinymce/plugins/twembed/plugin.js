@@ -1,8 +1,10 @@
-/*global tinymce:true */
+/*global tinymce:true,TweetEmbed */
 
 tinymce.PluginManager.add('twembed', function(editor) {
-    function showDialog() {
 
+    'use strict';
+
+    function showDialog() {
         editor.windowManager.open({
             title: 'Embed tweet',
             bodyType: 'tabpanel',
@@ -26,12 +28,31 @@ tinymce.PluginManager.add('twembed', function(editor) {
                                     TweetEmbed.apiPost({
                                         url: $('.mce-twurl-class').val(),
                                         id: '.mce-twapicode-class',
-                                        om_script: true,
-                                        cards: !$('.mce-twcard-class').hasClass('mce-checked'),
-                                        threads: !$('.mce-twthread-class').hasClass('mce-checked')
+                                        omit_script: true,
+                                        hide_media: !$('.mce-twmedia-class').hasClass('mce-checked'),
+                                        hide_thread: !$('.mce-twthread-class').hasClass('mce-checked'),
+                                        is_video: $('.mce-twvideo-class').hasClass('mce-checked'),
+                                        theme: $('.mce-twtheme-class').hasClass('mce-checked'),
+                                        maxwidth: $('.mce-twmaxwidth-class').val(),
+                                        linkcolor: $('.mce-twlinkcolor-class').val()
                                     });
                                 }
                             }
+                        }
+                    ]
+                },
+                {
+                    title: 'Design',
+                    type: 'form',
+                    items: [
+                        {
+                            type: 'textbox', name: 'maxwidth', size: 20, label: 'Maxwidth', classes: 'twmaxwidth-class'
+                        },
+                        {
+                            type: 'textbox', name: 'linkcolor', size: 20, label: 'Link color', classes: 'twlinkcolor-class'
+                        },
+                        {
+                            type: 'checkbox', name: 'theme', text: 'Dark background', classes: 'twtheme-class'
                         }
                     ]
                 },
@@ -40,11 +61,14 @@ tinymce.PluginManager.add('twembed', function(editor) {
                     type: 'form',
                     items: [
                         {
-                            type: 'checkbox', name: 'cards', text: 'Show cards', classes: 'twcard-class', checked: 'checked'
+                            type: 'checkbox', name: 'media', text: 'Show media', classes: 'twmedia-class'
                         },
                         {
                             type: 'checkbox', name: 'conversation', text: 'Show threads', classes: 'twthread-class'
                         },
+                        {
+                            type: 'checkbox', name: 'video', text: 'Load as video', classes: 'twvideo-class'
+                        }
                     ]
                 }
             ],

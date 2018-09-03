@@ -38,14 +38,14 @@ var TweetEmbedJs = (function() {
             apiPost: function(args) {
                 $.ajax({
                     url: "php/TweetEmbed.class.php",
-                    type: "post",
+                    type: "POST",
                     timeout: 40000,
                     data: { params : args }
                 })
-                    .done(function(response) {
-                        $('.mce-twapicode-class').val(response.oembed);
-                    })
-                    .fail(function(e, c) {});
+                .done(function(response) {
+                    $('.mce-twapicode-class').val(response.oembed);
+                })
+                .fail(function(e, c) {});
             }
         };
     }
